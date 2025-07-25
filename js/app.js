@@ -225,6 +225,7 @@ $(document).ready(function() {
                         ?statement psv:P625 ?coords . 
                         ?coords wikibase:geoLatitude ?lat . 
                         ?coords wikibase:geoLongitude ?lon . 
+                        ?item wdt:P131* wd:Q4120.
                         ${restriction} 
                 } LIMIT 1000
             } 
