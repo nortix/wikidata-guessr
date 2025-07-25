@@ -141,8 +141,8 @@ $(document).ready(function() {
                 return (min <= x && x <= max);
             };
 
-            var earthCircumference = 40075.16;
-            var x = 2.00151 - (distance/(earthCircumference/4));
+            var AusdehnungNU = 12.32;
+            var x = 2.00151 - (distance/(AusdehnungNU/4));
             points = Math.round(2100 * ((1 / (1 + Math.exp(-4 * x + 5.2))) + (1 / (Math.exp(-8 * x + 17.5))) + (1 / (Math.exp(-30 * x + 61.2))) + (500 / (Math.exp(-250 * x + 506.7)))));
 
             roundScore = points;
