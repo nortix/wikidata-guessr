@@ -75,7 +75,7 @@ $(document).ready(function() {
             // Reload maps to refresh coords
             svinitialize();
             guess2.setLatLng({lat: -999, lng: -999});
-            mymap.setView([30, 10], 1);
+            mymap.setView([48, 10], 13);
 
             // Reset Timer
             resetTimer();
