@@ -5,7 +5,7 @@
 function mminitialize() {
     mymap = L.map("miniMap");
 
-    mymap.setView([48, 10], 13);
+    mymap.setView([48.4, 10], 13);
 
     L.tileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
         attribution: 'Map data © <a href="http://openstreetmap.org">OpenStreetMap</a> contributors',
