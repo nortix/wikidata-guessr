@@ -134,7 +134,7 @@ $(document).ready(function() {
             };
 
             // Calculate distance between points, and convert to kilometers
-            distance = Math.ceil(calcDistance(window.actualLatLng.lat, window.actualLatLng.lon, window.guessLatLng.lat, window.guessLatLng.lng));
+            distance = calcDistance(window.actualLatLng.lat, window.actualLatLng.lon, window.guessLatLng.lat, window.guessLatLng.lng);
 
             // Calculate points awarded via guess proximity
             function inRange(x, min, max) {
@@ -183,7 +183,13 @@ $(document).ready(function() {
             points = 0;
 
         } else {
-            $('#roundEnd').html('<p>Your guess was<br/><strong><h1>'+distance+'</strong>km</h1> away from the actual location,<br/><h2><a href="'+window.locID+'">'+window.locName+'</a>' + (window.locDescription ? ', '+window.locDescription : '' ) + '.</h2><div id="roundMap"></div><br/> You have scored<br/><h1>'+roundScore+' points</h1> this round!<br/><br/><button class="btn btn-primary closeBtn" type="button">Continue</button></p></p>');
+            distance_to_show = Math.round(distance * 1000); // round the distance to meters
+            distance_unit = 'm';
+            if (distance_to_show >= 1000) {
+                distance_to_show = distance_to_show / 1000;
+                distance_unit = 'km';
+            }
+            $('#roundEnd').html('<p>Your guess was<br/><strong><h1>'+distance_to_show+'</strong> '+distance_unit+'</h1> away from the actual location,<br/><h2><a href="'+window.locID+'">'+window.locName+'</a>' + (window.locDescription ? ', '+window.locDescription : '' ) + '.</h2><div id="roundMap"></div><br/> You have scored<br/><h1>'+roundScore+' points</h1> this round!<br/><br/><button class="btn btn-primary closeBtn" type="button">Continue</button></p></p>');
             $('#roundEnd').fadeIn();
         };
 
