@@ -231,6 +231,10 @@ $(document).ready(function() {
                         ?statement psv:P625 ?coords . 
                         ?coords wikibase:geoLatitude ?lat . 
                         ?coords wikibase:geoLongitude ?lon . 
+
+                        OPTIONAL { ?statement pq:P582 ?endTime. }
+                        FILTER(!BOUND(?endTime) || ?endTime > NOW())
+
                         ?item wdt:P131* wd:Q4120.
                         ${restriction} 
                 } LIMIT 1000
