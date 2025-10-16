@@ -235,7 +235,7 @@ $(document).ready(function() {
                         OPTIONAL { ?statement pq:P582 ?endTime. }
                         FILTER(!BOUND(?endTime) || ?endTime > NOW())
 
-                        ?item wdt:P131* wd:Q4120.
+                        ?item wdt:P131* wd:Q1715.
                         ${restriction} 
                 } LIMIT 1000
             } 
